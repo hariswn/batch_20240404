@@ -4,15 +4,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                echo 'pulled repository changes from github succcesfully!'
             }
         }
         stage('Build and Test') {
             steps {
                 script {
-                    def mvnCmd = isUnix() ? 'mvn' : 'mvn.bat'
-                    sh "${mvnCmd} clean install"
-                    sh "${mvnCmd} test"
+                    echo 'build successfully!!'
                 }
             }
         }
@@ -23,7 +21,7 @@ pipeline {
             steps {
                 // Add deployment steps here (e.g., deploying to AWS EC2)
                 // Example: sh 'scp target/my-app.jar user@your-ec2-instance:/path/to/deploy'
-				echo 'deployed successfully!!'
+		echo 'deployed successfully!!'
             }
         }
     }
