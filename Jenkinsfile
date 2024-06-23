@@ -14,6 +14,7 @@ pipeline {
                 }
             }
         }
+
         stage('Deploy to feature') {
             when {
                 expression { currentBuild.resultIsBetterOrEqualTo('SUCCESS') }
